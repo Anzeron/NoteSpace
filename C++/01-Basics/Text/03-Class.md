@@ -221,3 +221,46 @@ void test3()
 
 
 
+### 运算符重载
+
+运算符重载概念：对已有的运算符重新进行定义，赋予其另一种功能，以适应不同的数据类型
+
+#### 赋值运算符重载
+
+默认情况下，编译器提供上文中的构造函数和析构函数，还会提供赋值运算符`operator=`
+
+示例
+
+```c++
+OPPerson::OPPerson(int age)
+{
+    this->age = age;
+}
+
+OPPerson & OPPerson::operator=(OPPerson &p)
+{
+    std::cout << "person operator=" << std::endl;
+    this->age = p.age;
+    return *this;
+}
+
+std::ostream & operator <<(std::ostream &os,const OPPerson &p)
+{
+    os << "Person with age:" << p.age <<std::endl;
+    
+    return os;
+}
+```
+
+```c++
+void test1()
+{
+    OPPerson p1 = OPPerson(1);      // 有参构造函数
+    OPPerson p2 = OPPerson(2);      // 有参构造函数
+    OPPerson p = p1;       // 编译器生成的拷贝构造函数
+    std::cout << p;
+    p = p2;     // 赋值运算符
+    std::cout << p;
+}
+```
+
