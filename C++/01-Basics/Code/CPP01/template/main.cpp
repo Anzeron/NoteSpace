@@ -6,9 +6,10 @@
 //
 
 #include <iostream>
+#include "FunctionTemplate1.hpp"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    test2();
+    
     return 0;
 }
