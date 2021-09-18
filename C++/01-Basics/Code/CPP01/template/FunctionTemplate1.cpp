@@ -35,6 +35,16 @@ T add2(T a, T b, double c)
     return a + b + c;
 }
 
+template <typename  T>
+bool equal(T &a, T &b) {
+    std::cout << "equal(T &a, T &b)" << std::endl;
+    return a == b;
+}
+
+template<> bool equal(FTPerson &p1, FTPerson &p2) {
+    std::cout << "equal(FTPerson &p1, FTPerson &p2)" << std::endl;
+    return p1.age == p2.age;
+}
 
 void test1()
 {
@@ -55,6 +65,14 @@ void test2()
     double c1 = 1.3;
     add2(a1, b1, a1);
     add2(a1, b1, c1);
+}
+
+void test3()
+{
+    FTPerson p1;
+    FTPerson p2;
+    
+    equal(p1, p2);
 }
 
 
