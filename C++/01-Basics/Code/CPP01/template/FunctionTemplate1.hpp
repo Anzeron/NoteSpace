@@ -14,6 +14,7 @@
 void test1();
 void test2();
 void test3();
+void test4();
 
 int add1(int a, int b);
 
@@ -38,6 +39,11 @@ bool equal(T &a, T &b);
 template<> bool equal(FTPerson &p1, FTPerson &p2);
 
 
+//void eat(int a);
+//void eat(char a);
+//void eat(float a);
+//template<typename T> void eat(T a);
+//template<> void eat(int a);
 
 
 #endif /* FunctionTemplate1_hpp */

@@ -9,7 +9,7 @@
 #include "FunctionTemplate1.hpp"
 
 int main(int argc, const char * argv[]) {
-    test3();
+    test4();
     
     return 0;
 }

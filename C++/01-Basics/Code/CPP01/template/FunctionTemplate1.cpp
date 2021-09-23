@@ -46,6 +46,26 @@ template<> bool equal(FTPerson &p1, FTPerson &p2) {
     return p1.age == p2.age;
 }
 
+void eat(int a) {
+    std::cout << "eat(int a)" << std::endl;
+}
+
+//void eat(char a) {
+//    std::cout << "eat(char a))" << std::endl;
+//}
+
+void eat(float a) {
+    std::cout << "eat(float a)" << std::endl;
+}
+
+//template<typename T> void eat(T a) {
+//    std::cout << "template void eat(T a)" << std::endl;
+//}
+
+//template<> void eat(int a) {
+//    std::cout << "template void eat(int a)" << std::endl;
+//}
+
 void test1()
 {
     int a1 = 1;
@@ -73,6 +93,19 @@ void test3()
     FTPerson p2;
     
     equal(p1, p2);
+}
+
+void test4()
+{
+    char a = 'a';
+//    int a = 1;
+    eat(a);
+}
+
+void test5()
+{
+    char a = 'a';
+    eat(a);
 }
 
 
