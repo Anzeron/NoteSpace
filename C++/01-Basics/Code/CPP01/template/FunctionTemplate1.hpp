@@ -45,5 +45,19 @@ template<> bool equal(FTPerson &p1, FTPerson &p2);
 //template<typename T> void eat(T a);
 //template<> void eat(int a);
 
+template <typename T>
+class Array {
+private:
+    int count;
+    
+public:
+    Array();
+};
+
+template <typename T>
+Array<T>::Array() {
+    count = 0;
+}
+
 
 #endif /* FunctionTemplate1_hpp */

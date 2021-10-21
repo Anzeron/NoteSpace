@@ -136,6 +136,7 @@
 		AB8CAA7026D5F388002C7B82 /* Person.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Person.hpp; sourceTree = "<group>"; };
 		AB8CAA7226D5F782002C7B82 /* Student.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Student.cpp; sourceTree = "<group>"; };
 		AB8CAA7326D5F782002C7B82 /* Student.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Student.hpp; sourceTree = "<group>"; };
+		AB90FAEF2702C88000214734 /* ClassTemplate1.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ClassTemplate1.hpp; sourceTree = "<group>"; };
 		ABC2E82126DE477A001B07D9 /* extern-c */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "extern-c"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABC2E82326DE477A001B07D9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		ABC2E82826DE4834001B07D9 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
@@ -323,6 +324,7 @@
 				ABD5780B26F1A56F00ADF4D8 /* main.cpp */,
 				ABD5781026F1A5C700ADF4D8 /* FunctionTemplate1.cpp */,
 				ABD5781126F1A5C700ADF4D8 /* FunctionTemplate1.hpp */,
+				AB90FAEF2702C88000214734 /* ClassTemplate1.hpp */,
 			);
 			path = template;
 			sourceTree = "<group>";

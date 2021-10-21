@@ -7,9 +7,10 @@
 
 #include <iostream>
 #include "FunctionTemplate1.hpp"
+#include "ClassTemplate1.hpp"
 
 int main(int argc, const char * argv[]) {
-    test4();
-    
+//    test6();
+    Array<int> a;
     return 0;
 }
