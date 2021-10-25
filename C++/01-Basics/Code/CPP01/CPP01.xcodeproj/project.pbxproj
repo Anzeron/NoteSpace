@@ -149,6 +149,7 @@
 		ABEB5E4926DFA4B900B05270 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		ABEB5E4E26DFA4D300B05270 /* Person.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Person.cpp; sourceTree = "<group>"; };
 		ABEB5E4F26DFA4D300B05270 /* Person.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Person.hpp; sourceTree = "<group>"; };
+		ABF2C26327211AF700A430D7 /* fruit.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = fruit.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				ABD5780B26F1A56F00ADF4D8 /* main.cpp */,
+				ABF2C26327211AF700A430D7 /* fruit.hpp */,
 				ABD5781026F1A5C700ADF4D8 /* FunctionTemplate1.cpp */,
 				ABD5781126F1A5C700ADF4D8 /* FunctionTemplate1.hpp */,
 				AB90FAEF2702C88000214734 /* ClassTemplate1.hpp */,
