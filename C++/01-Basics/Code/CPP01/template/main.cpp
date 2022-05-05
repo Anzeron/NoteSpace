@@ -8,9 +8,11 @@
 #include <iostream>
 #include "FunctionTemplate1.hpp"
 #include "ClassTemplate1.hpp"
+#include "fruit.hpp"
 
 int main(int argc, const char * argv[]) {
 //    test6();
-    Array<int> a;
+//    Array<int> a;
+    test9();
     return 0;
 }
