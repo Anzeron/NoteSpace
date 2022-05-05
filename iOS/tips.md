@@ -75,3 +75,40 @@ class ProductDetailViewController: UIViewController {
     }
 }
 ```
+
+
+
+### mac App，使用Process执行Shell命令报错处理
+
+```
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted
+ls: .: Operation not permitted
+```
+
+去掉App的Sandbox限制，默认工程设置是Sandbox
+
+
+
+### navigationController在iOS 15上的崩溃
+
+rootVC里的block代码持有navigationVC
+VC都已经appear了，block准备在子线程执行，但还没执行
+在这个时刻，navigationVC被dismiss了
+navigationVC和rootVC不会被释放，因为被block持有
+
+主线程
+    准备释放navigationVC和rootVC内存
+子线程
+    访问各种变量，变量是指向navigationVC和rootVC内存
+
+子线程BLOCK中的行为
+iOS 14
+    imagePickerVc = (TZImagePickerController *)self.navigationController
+    imagePickerVc是nil，后续各种操作imagePickerVc都不会挂
+
+iOS 15
+    imagePickerVc = (TZImagePickerController *)self.navigationController
+    imagePickerVc不是nil
+    后续第1，6，2时刻，navigationVC内存没有释放，访问imagePickerVc的属性没有问题
+    navigationVC内存被释放，
+    第3，4，5，6步访问imagePickerVc的属性就挂了
