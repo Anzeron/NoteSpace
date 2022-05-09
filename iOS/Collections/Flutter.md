@@ -10,6 +10,24 @@ Hummer 是 UC 内核团队定制的 Flutter 引擎，它基于官方 Flutter 引
 
 
 
+### [Flutter PlatformView 优化](https://mp.weixin.qq.com/s/gJXk56yJ5oJREHCUbsdhXg)
+
+C 的 U4 内核团队针对 Flutter 上的 PlatformView 做了深入的研究，并且做了一下优化 PR（部分合入到官方中），主要是针对 Android 的场景，目前官方提供的 Virtual displays 和 Hybrid composition 都存在一些问题，Virtual displays 存在功能性问题，Hybrid composition 存在因为线程合并带来的性能问题，以及死锁风险，且在 Android Q 以下因为内存拷贝导致性能变差。在之前的 Hummer 引擎中实现了挖洞模式，并且通过移植 Roger 大神在 U4 浏览器内核中实现的 Embed Surface 方案，来进一步优化。并且 Embed Surface 方案被合入到主线，后续会逐渐弃用 Hybrid composition。因此可以期待最新的 release 版本。
+
+最终得到的结论：
+
+- 「挖洞模式」的性能仍然是最好的。在挖洞模式能满足的场景下，请考虑优先使用挖洞；
+- Embed Surface 除了仅支持 Android 6.0 及以上外，没有明显短板，其帧率在大多数场景下可以与挖洞模式持平；
+- 从测试数据看，不合并线程的 HybridComposition 的帧率波动比较大，并不比 Embed Surface 有优势。另外，因为不能完全避免 Android Q 以下的内存拷贝，同时还需要处理部分场景下的同步问题，所以我们不会继续优化该方案。
+
+
+
+### [Flutter 新一代图形渲染器 Impeller](https://mp.weixin.qq.com/s/PLvlSt3tlX6AjufDm0XVMA)
+
+Flutter在2022年的Roadmap中提出需要重新考虑着色器的使用方式，计划重写图像渲染后端。最近该渲染后端 Impeller（叶轮）初见端倪，[本文](https://mp.weixin.qq.com/s/PLvlSt3tlX6AjufDm0XVMA)就从 Flutter 图形渲染优化历史讲起，一步步带你了解 Flutter 下图形渲染的优化，以及最新开发中的 Impeller ，详细带你了解 Impeller 的方方面面
+
+
+
 ### [Flutter 比 React Native 更好吗？](https://mp.weixin.qq.com/s/DozzpgKxvXtgBG1-tYjboQ)
 
 本文作者是一家软件开发公司的创始人兼 CTO，同时也是 React Native 的核心成员。在这篇文章里，作者试着尽可能公平地从人力成本，开发者体验，性能，体验，Web 支持，第三方生态，动态更新，以及使用它们的公司等多方面，去讨论 Flutter 和 React Native 的优劣，让大家在项目技术选型时多一点指导权衡思考的素材。
