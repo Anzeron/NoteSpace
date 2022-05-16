@@ -22,6 +22,20 @@ C 的 U4 内核团队针对 Flutter 上的 PlatformView 做了深入的研究，
 
 
 
+### [Flutter 深入探索混合开发的技术演进](https://mp.weixin.qq.com/s/JjlCyCOC4gL7hx3UNs7ONQ)
+
+本文梳理了 Flutter 中 PlatformView 的演进过程，也就是从直接通过 channel 打开一个 WebviewController 到 Virtual Displays 到 Flutter Hybrid Composition 的过程，文中通过各种例子说明原理以及也指明了优缺点，在使用 Flutter 的同学建议一看。同时上周推荐的 UC 团队做的进一步优化进行是下一步演进方向，也可以一并看看。
+
+参考链接： [U4 内核技术 - Flutter PlatformView 优化](https://mp.weixin.qq.com/s/gJXk56yJ5oJREHCUbsdhXg)
+
+
+
+###  [Flutter 状态管理框架 Provider 和 Get 分析](https://mp.weixin.qq.com/s/iLSjr-HE4VC1kTdjI2bFNQ)
+
+[@极速男孩](https://github.com/ztlyyznf001)：Flutter 作为一个声明式的 UI 框架状态管理是一个让人头疼的问题，没有状态管理会导致难以复用/单元测试，跨页面无法传递数据，setState 方法会过度刷新的问题。本文主要介绍了 Get 与 Provider 的状态管理的原理，并且如何利用他们去实现 MVP 模式，并且对比了两者的优缺点。
+
+
+
 ### [Flutter 新一代图形渲染器 Impeller](https://mp.weixin.qq.com/s/PLvlSt3tlX6AjufDm0XVMA)
 
 Flutter在2022年的Roadmap中提出需要重新考虑着色器的使用方式，计划重写图像渲染后端。最近该渲染后端 Impeller（叶轮）初见端倪，[本文](https://mp.weixin.qq.com/s/PLvlSt3tlX6AjufDm0XVMA)就从 Flutter 图形渲染优化历史讲起，一步步带你了解 Flutter 下图形渲染的优化，以及最新开发中的 Impeller ，详细带你了解 Impeller 的方方面面
