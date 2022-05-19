@@ -91,7 +91,51 @@ arithmeticMean(1, 2, 3, 4, 5)
 
   
 
+### 函数重载
 
+2个函数需要满足以下条件
+
+- 函数名相同
+- 参数个数不同，或者参数类型不同，或者参数标签不同
+
+注意点
+
+- 返回值类型与函数重载无关
+
+- 默认参数值和函数重载一起使用不会产生二义性。这个不好
+
+  ```swift
+  func sum(v1: Int, v2: Int) -> Int {
+      v1 + v2
+  }
+  
+  func sum(v1: Int, v2: Int, v3: Int = 10) -> Int {
+      v1 + v2 + v3
+  }
+  sum(v1: 10, v2:20) // 使用第一个函数
+  ```
+
+- 可变参数，省略参数，函数重载一起使用，很奇怪现象，别这样搞
+
+  ```swift
+  func sum(v1: Int, v2: Int) -> Int {
+      v1 + v2
+  }
+  
+  func sum(v1: Int, v2: Int, v3: Int = 10) -> Int {
+      v1 + v2 + v3
+  }
+  
+  func sum(_ numbers: Int...) -> Int {
+      var total = 0
+      for number in numbers {
+          total += number
+      }
+      return total
+  }
+  ```
+
+  
 
 
 
