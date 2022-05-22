@@ -28,20 +28,50 @@ func greet(person: String) -> String {
 #### 参数标签
 
 - 参数是函数内部使用
+
 - 在外部，调用函数需要参数标签
 
-```swift
-func greet(person: String, from hometown: String) -> String {
-    return "Hello \(person)!  Glad you could visit from \(hometown)."
-}
-print(greet(person: "Bill", from: "Cupertino"))
-```
+  ```swift
+  func greet(person: String, from hometown: String) -> String {
+      return "Hello \(person)!  Glad you could visit from \(hometown)."
+  }
+  print(greet(person: "Bill", from: "Cupertino"))
+  ```
+
+- 可以使用`_`省略参数标签
+
+  ```swift
+  func sum(_ v1: Int, _ v2: Int) -> Int {
+      v1 + v2
+  }
+  sum(1,2)
+  ```
 
 
 
 #### 默认参数值
 
+- 参数可以有默认值，由于存在参数标签，一般情况下参数都可以有默认值
 
+  ```swift
+  func someFunction(a: Int = 1, b: Int ) {
+      
+  }
+  someFunction(a: 3, b: 6)
+  someFunction(b: 4)
+  ```
+
+- 同时使用默认参数值和**省略参数标签**时，调用的时候要注意写参数标签，保证所有参数都有值
+
+  ```swift
+  func someFunction2(_ a: Int = 1, b: Int, _ c: Int = 2 ) {
+      
+  }
+  // 必须写参数标签
+  someFunction2(b: 1)
+  ```
+
+  
 
 #### 可变参数
 
@@ -135,7 +165,112 @@ arithmeticMean(1, 2, 3, 4, 5)
   }
   ```
 
-  
+
+
+
+### 内联函数
+
+- 将函数调用展开成函数体内容，避免函数的栈开销
+- 编译器会进行优化。在Release模式下默认开启优化，Debug模式下没有优化
+
+
+
+哪些函数不会被自动内联
+
+- 函数体比较长。可能会影响包体积
+- 函数体内有递归调用
+- 函数体内有动态派发
+
+
+
+内敛关键字`inline`。编译器会自动优化，其实没有必要用
+
+```swift
+ // 永远不会被内联(即使开启了编译器优化) 
+@inline(never) func test1() {
+    print("test")
+}
+
+// 开启编译器优化后，即使代码很长，也会被内联(递归调用函数、动态派发的函数除外) 
+@inline(__always) func test() { 								`    
+	print("test") 
+}
+```
+
+
+
+### 函数类型
+
+函数类型由2部分组成
+
+- 参数类型
+- 返回类型
+
+```swift
+// () -> ()
+func printHelloWorld() {
+    print("hello, world")
+}
+
+// (Int, Int) -> Int
+func addTwoInts(_ a: Int, _ b: Int) -> Int {
+    return a + b
+}
+```
+
+
+
+#### 作为变量的类型
+
+变量或者常量都可以
+
+```swift
+var mathFunction: (Int, Int) -> Int = addTwoInts
+print("Result: \(mathFunction(2, 3))")
+```
+
+
+
+#### 作为参数的类型
+
+```
+func printMathResult(_ mathFunction: (Int, Int) -> Int, _ a: Int, _ b: Int) {
+    print("Result: \(mathFunction(a, b))")
+}
+printMathResult(addTwoInts, 3, 5)
+```
+
+
+
+#### 作为返回的类型
+
+```swift
+func stepForward(_ input: Int) -> Int {
+    return input + 1
+}
+
+func stepBackward(_ input: Int) -> Int {
+    return input - 1
+}
+
+func chooseStepFunction(backward: Bool) -> (Int) -> Int {
+    return backward ? stepBackward : stepForward
+}
+```
+
+
+
+### 嵌套函数
+
+```swift
+func chooseStepFunction(backward: Bool) -> (Int) -> Int {
+    func stepForward(input: Int) -> Int { return input + 1 }
+    func stepBackward(input: Int) -> Int { return input - 1 }
+    return backward ? stepBackward : stepForward
+}
+chooseStepFunction(backward: true)(2)
+chooseStepFunction(backward: false)(1)
+```
 
 
 
