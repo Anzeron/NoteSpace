@@ -22,6 +22,20 @@ C 的 U4 内核团队针对 Flutter 上的 PlatformView 做了深入的研究，
 
 
 
+### [Dutter | 钉钉 Flutter 跨四端方案设计与技术实践](https://mp.weixin.qq.com/s/JyfwrfsWplHhkColYLhBpg)
+
+[@老峰](https://github.com/gesantung)：Dutter 即 DingTalk Flutter，是钉钉内基于 Flutter 构建的跨四端研发框架，本文主要包含以下内容：
+
+- 整体架构： Dutter Runtime、Dutter Dev Kit、Dutter OPS Kit；
+- 数据通信包括：Channel、Dutter FFI；
+- 消息总线；
+- 模块化；
+- 容器化；
+- 组件库：dingui_flutter 、dingtalk_uikit；
+- 最佳实践以及部分 FlutterEngine 层面的问题定位等。
+
+
+
 ### [Flutter 深入探索混合开发的技术演进](https://mp.weixin.qq.com/s/JjlCyCOC4gL7hx3UNs7ONQ)
 
 本文梳理了 Flutter 中 PlatformView 的演进过程，也就是从直接通过 channel 打开一个 WebviewController 到 Virtual Displays 到 Flutter Hybrid Composition 的过程，文中通过各种例子说明原理以及也指明了优缺点，在使用 Flutter 的同学建议一看。同时上周推荐的 UC 团队做的进一步优化进行是下一步演进方向，也可以一并看看。
