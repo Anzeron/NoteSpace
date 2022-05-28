@@ -233,7 +233,7 @@ print("Result: \(mathFunction(2, 3))")
 
 #### 作为参数的类型
 
-```
+```swift
 func printMathResult(_ mathFunction: (Int, Int) -> Int, _ a: Int, _ b: Int) {
     print("Result: \(mathFunction(a, b))")
 }
