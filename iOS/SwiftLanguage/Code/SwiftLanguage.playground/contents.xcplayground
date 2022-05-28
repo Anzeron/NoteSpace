@@ -4,5 +4,7 @@
         <page name='01-Basics'/>
         <page name='02-ControlFlow'/>
         <page name='03-Functions'/>
+        <page name='04-Enumerations'/>
+        <page name='05-Optionals'/>
     </pages>
 </playground>
