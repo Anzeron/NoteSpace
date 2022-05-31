@@ -10,6 +10,12 @@ Hummer 是 UC 内核团队定制的 Flutter 引擎，它基于官方 Flutter 引
 
 
 
+###  [【Hummer Flutter引擎】让Flutter绽放得更美 - 包体积优化之道](https://mp.weixin.qq.com/s/OnAnOAX1K5TyHbuUjV3LEg)
+
+[@极速男孩](https://github.com/ztlyyznf001): Flutter 的包体积一直是个让开发者头疼的问题。 本文主要介绍了 Hummer 引擎是如何通过引擎的优化和精简，分包动态化技术和资源的优化来完成对包体积缩减。并且介绍了监控和动态化平台的落地。
+
+
+
 ### [Flutter PlatformView 优化](https://mp.weixin.qq.com/s/gJXk56yJ5oJREHCUbsdhXg)
 
 C 的 U4 内核团队针对 Flutter 上的 PlatformView 做了深入的研究，并且做了一下优化 PR（部分合入到官方中），主要是针对 Android 的场景，目前官方提供的 Virtual displays 和 Hybrid composition 都存在一些问题，Virtual displays 存在功能性问题，Hybrid composition 存在因为线程合并带来的性能问题，以及死锁风险，且在 Android Q 以下因为内存拷贝导致性能变差。在之前的 Hummer 引擎中实现了挖洞模式，并且通过移植 Roger 大神在 U4 浏览器内核中实现的 Embed Surface 方案，来进一步优化。并且 Embed Surface 方案被合入到主线，后续会逐渐弃用 Hybrid composition。因此可以期待最新的 release 版本。
@@ -47,6 +53,12 @@ C 的 U4 内核团队针对 Flutter 上的 PlatformView 做了深入的研究，
 ###  [Flutter 状态管理框架 Provider 和 Get 分析](https://mp.weixin.qq.com/s/iLSjr-HE4VC1kTdjI2bFNQ)
 
 [@极速男孩](https://github.com/ztlyyznf001)：Flutter 作为一个声明式的 UI 框架状态管理是一个让人头疼的问题，没有状态管理会导致难以复用/单元测试，跨页面无法传递数据，setState 方法会过度刷新的问题。本文主要介绍了 Get 与 Provider 的状态管理的原理，并且如何利用他们去实现 MVP 模式，并且对比了两者的优缺点。
+
+
+
+###  [“Stop” using state management libraries](https://medium.com/flutter-community/stop-using-state-management-libraries-48a81ed7979d)
+
+[@CrazyCoderShi](https://github.com/CrazyCoderShi): 在 Flutter 项目中状态管理是必须要解决的问题，行业内也有各种解决方案，例如: GetX, Provider, MobX, BLoc 等，但在其下更应该思考的是是否有必要？本文标题党一把，从其需求根本上讨论使用的必要性，非常推荐小白细读.
 
 
 
