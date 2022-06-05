@@ -279,3 +279,25 @@ MemoryLayout.stride(ofValue: barcode)   // 16
 MemoryLayout.alignment(ofValue: barcode)    // 8
 ```
 
+如果枚举只有一个`case`，类型实际使用的内存是0
+
+```swift
+enum Barcode2 {
+    case custom
+}
+MemoryLayout<Barcode2>.size  // 0，实际使用的字节。
+MemoryLayout<Barcode2>.stride    // 1，分配的内存
+MemoryLayout<Barcode2>.alignment     // 1，对齐参数
+```
+
+如果枚举只有一个`case`，并且有关联值，类型实际使用的内存是8，需要再多1个字节来区分是哪个`case`
+
+```swift
+enum Barcode3 {
+    case custom(Int)
+}
+MemoryLayout<Barcode3>.size  // 8，实际使用的字节。不需要再多1个字节来区分是哪个case
+MemoryLayout<Barcode3>.stride    // 8，分配的内存
+MemoryLayout<Barcode3>.alignment     // 8，对齐参数
+```
+
