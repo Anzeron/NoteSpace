@@ -38,6 +38,27 @@ Swift 5.6 中引入了 **Type Placeholders** 来进一步优化类型推断，�
 
 
 
+#### [Swift 中的 @objc、@objcMembers 关键字探讨](https://mp.weixin.qq.com/s/Yfk_hI3kIIOBzvmwc_6w_w) 
+
+@东坡肘子：我们说 Objective-C 是一门动态语言，决策会尽可能地推迟到运行时。而 Swit 是一门静态语言，也就是说 Swift 的对象类型、调用的方法都是在编译期就确定的，这也是为什么 Swift 比 OC 性能高的原因。但是在 Swift 中所有继承自 NSObject 的类，仍然保留了 Objective-C 的动态性。如果想要使用它的动态性就需要加上 @objc 关键字，本篇文章就来讲一下，哪些情况需要用到 @objc。
+
+1. Protocol如果是optional(非必须实现)的，必须加上@objc
+2. 利用#selector调用的方法,被调用的方法须加上@objc
+3. 使用kvc时
+4. NSPredicate筛选
+5. oc与swift混合开发，swift方法/属性需要被oc调用的，要加上@objc
+6. swift的枚举需要被oc使用的
+
+
+
+### 写更好的代码
+
+#### [@available 与调用方进行沟通](https://mp.weixin.qq.com/s/e2_mWNx4HduM57LF0xTvqA) 
+
+@东坡肘子：保持代码不变很难，因为需求不断在变化，系统、框架不断在更新。那么项目实践中，往往会废弃掉一些类或方法。如果是自己独立维护代码，且不需要将代码给他人使用，废弃 API 对你来说是非常简单的，直接改动源码即可。但是对于多人合作的项目，特别是开源的库，废弃一个公开的 API 不是简单地改动下代码就可以，因为你的改动将会影响使用你这个库的所有代码。公开的 API 的更新换代，就相当于你改动了和别人约定的契约一样，这也侧面反映了作者的专业水平。那么如果要废弃一个 API，在 Swift 中我们该如何做？
+
+
+
 ### 协议
 
 #### 组合多个协议
@@ -100,9 +121,17 @@ Swift中的指针分为两类
 
 
 
-### Swift
+### SwiftUI
 
 #### [Jenga - 基于 Swift ResultBuilder 优雅的构建 UITableView](https://github.com/fanglinwei/Jenga)
 
 [@老峰](https://github.com/gesantung)：Jenga 是一个基于 ResultBuilder 封装的类 SwiftUI 使用声明式语法构建 UITableView 开源库，提供了 State 和 Binding 特性，代码简洁，可读性强，感兴趣的同学不妨一试。
+
+#### [ViewBuilder 研究 —— 掌握 Result builders](https://mp.weixin.qq.com/s/4TwfyhWHVjm3Dv-Vz7MYvg)
+
+@东坡肘子：结果构造器能按顺序构造一组嵌套的数据结构。利用它，可以以一种自然的声明式语法为嵌套数据结构实现一套领域专门语言（ DSL ），SwiftUI 的声明式特性即来源于此。本文将探讨结果构造器的实现原理，以及如何使用它来创建自己的 DSL 。
+
+#### [为自定义属性包装类型添加类 @Published 的能力](https://mp.weixin.qq.com/s/USGJbLnR-l8Ajgcj8Vb7_A) 
+
+@东坡肘子：属性包装器允许你在一个独特的包装器对象中提取通用逻辑。你可以把属性包装器看作是一个额外的层，它定义了一个属性是如何在读取时存储或计算的。它有利于改善 getters 和 setters 中发现重复性代码的几率。本文介绍了 Swift 编译器如何将属性包装类型转译为标准的 Swift 代码，并通过几个实例让读者对属性包装器的用法有更深的了解。
 
