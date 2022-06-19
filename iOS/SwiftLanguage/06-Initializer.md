@@ -1,4 +1,4 @@
-### 初始化器
+### 结构体初始化器
 
 初始化器：要保证所有成员都有初始值
 
@@ -38,8 +38,6 @@ let p6 = Point3(x:1)
 let p7 = Point3()
 ```
 
-#### 
-
 #### 自定义初始化器，编译器不会再自动生成
 
 自定义了初始化器，那就只有一个初始化器了。
@@ -57,3 +55,52 @@ let p8 = Point4(x:1, y: 2)
 // let p9 = Point4(y: 2) 编译报错
 ```
 
+#### 编译器生成的初始化器
+
+`Point5`编译器会生成初始化器`init()`，实现跟`Point6`的`init()`是一样的。
+
+通过观察2个地方的汇编代码，发现它们是一样的。
+
+```swift
+struct Point5 {
+    var x: Int = 0
+    var y: Int = 0
+}
+let p10 = Point5()
+
+struct Point6 {
+    var x: Int
+    var y: Int
+    init() {
+        x = 0
+        y = 0
+    }
+}
+let p11 = Point6()
+```
+
+### 类初始化器
+
+#### 编译器不会生成带参数的初始化器
+
+以下代码会编译出错，提示没有初始化器。
+
+```swift
+class Point7 {
+    var x: Int
+    var y: Int
+}
+```
+
+#### 编译器生成无参初始化器
+
+如果所有的成员变量在定义时都有初始值，编译器会自动生成无参初始化器。
+
+```swift
+class Point8 {
+    var x: Int = 1
+    var y: Int = 2
+}
+let p12 = Point8()
+//let p13 = Point8(x: 1, y: 2)
+```
