@@ -99,6 +99,10 @@ Swift中的指针分为两类
 
 文章通过示例代码，详细介绍了这些指针的使用方式。
 
+#### [Exploring Swift Memory Layout](https://www.youtube.com/watch?v=ERYNyrfXjlg)
+
+一份来自 GOTO Conferences 有关 Swift Memory Layout 的一小时讲座，该讲座深入浅出的讲解了 Swift 中各种例如指针、结构体、类、枚举、数组、协议等我们平时使用的这些工具在内存中是以什么样的形式存在，以及如何解决一些常见问题。对于想了解这部分知识的朋友，这个讲座视频将是一个不错的开胃菜
+
 ### 异步
 
 #### [Introducing Swift Async Algorithms](https://www.swift.org/blog/swift-async-algorithms/)
