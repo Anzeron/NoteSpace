@@ -100,3 +100,7 @@ Flutter 在渲染性能上一直都是其宣传的亮点，然而即使这样在
 ### [Flutter图片库重磅开源](https://mp.weixin.qq.com/s/WnpDbDvEVNMj_96ulnuWkQ)
 
 [@CrazyCoderShi](https://github.com/CrazyCoderShi): 去年，闲鱼技术团队新一代图片库 PowerImage 在经过一系列灰度、问题修复、代码调优后，已全量稳定应用于闲鱼。相对于上一代 IFImage，PowerImage 经过进一步的演进，适应了更多的业务场景与最新的 flutter 特性，解决了一系列痛点.
+
+### [Flutter 高延迟渲染流水线调度](https://mp.weixin.qq.com/s/Iv7zogoFD38n-92Un-5Bgg)
+
+[@CrazyCoderShi](https://github.com/CrazyCoderShi): Flutter 长久以来以高性能著称，但你可能好奇 Flutter 上的卡顿是什么引擎的，又应该如何解决。本文由 U4 内核组带你揭秘 Flutter 体系下的渲染流程，并从中找到卡顿的原因，抽丝剥茧，进阶必看
