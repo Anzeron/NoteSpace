@@ -41,6 +41,12 @@ Swift 5.6 中引入了 **Type Placeholders** 来进一步优化类型推断，�
 5. oc与swift混合开发，swift方法/属性需要被oc调用的，要加上@objc
 6. swift的枚举需要被oc使用的
 
+#### [Swift 5.7的some和any](https://www.swiftbysundell.com/articles/referencing-generic-protocols-with-some-and-any-keywords/)
+
+相比 ObjC，Swift 协议带来更丰富的实用场景和更严格校验的类型信息。当我们遵循苹果的建议，尝试在项目中落地面向协议编程时，在参数类型、范型关联等场景，类型信息带来大量的限制，这导致我们不得不大量应用类型擦除，能解决问题，也带来更多的理解成本。
+
+Swift 5.1 引入 some 关键字（opaque return types），让基于协议的返回类型更易用。而 Swift 5.7 更进一步，让 some 更灵活的应用与函数参数及范型等场景，同时引入 any 关键字带来官方的类型擦除语义用于类型容器场景。至此，在实例类型更明确的场景使用 some 关键字，类型容器场景使用 any 关键字，Swift 在面向协议编程中真正达到简洁同时兼顾灵活。
+
 ### 写更好的代码
 
 #### [@available 与调用方进行沟通](https://mp.weixin.qq.com/s/e2_mWNx4HduM57LF0xTvqA)
@@ -136,3 +142,7 @@ Swift中的指针分为两类
 [上篇](https://mp.weixin.qq.com/s/4TwfyhWHVjm3Dv-Vz7MYvg)将介绍 ViewBuilder 背后的实现者 —— result builders
 
 [下篇](https://mp.weixin.qq.com/s/E6VKDbgKerFf0P20N1DsuA)将通过对 ViewBuilder 的仿制，进一步地探寻 SwiftUI 视图的秘密。
+
+#### [Rendering SwiftUI views within UITableView or UICollectionView cells on iOS 16](https://www.swiftbysundell.com/articles/rendering-swiftui-views-within-uitableview-or-uicollectionview/)
+
+今年的 WWDC 22 终于带来了在 UITableView/UICollectionView Cells 中渲染 SwiftUI 视图的能力，但并不是可以完全混用了，仅限于 Cells（比如 UITableViewHeaderFooterView 就不能用），Cells 与 SwiftUI 之间要依赖 UIHostConfiguration 的桥接支持，使用一个新的 UIHostConfiguration 对象 wrap SwiftUI 视图并赋值给 cell.contentConfiguration。John Sundell 的这篇文章可以带领大家了解更多详情，并充分利用这一新特性。
