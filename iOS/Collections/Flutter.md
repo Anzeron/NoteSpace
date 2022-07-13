@@ -104,3 +104,58 @@ Flutter 在渲染性能上一直都是其宣传的亮点，然而即使这样在
 ### [Flutter 高延迟渲染流水线调度](https://mp.weixin.qq.com/s/Iv7zogoFD38n-92Un-5Bgg)
 
 [@CrazyCoderShi](https://github.com/CrazyCoderShi): Flutter 长久以来以高性能著称，但你可能好奇 Flutter 上的卡顿是什么引擎的，又应该如何解决。本文由 U4 内核组带你揭秘 Flutter 体系下的渲染流程，并从中找到卡顿的原因，抽丝剥茧，进阶必看
+
+### [Dutter | 前车之鉴：聊聊钉钉 Flutter 落地桌面端踩过的“坑”](https://mp.weixin.qq.com/s/53pZQgDI642dWQPY2CdkiA)
+
+[@老峰](https://github.com/gesantung)：本文主要介绍一下钉钉 Flutter 业务灰度过程中，在桌面端遇到并处理过的几个 FlutterEngine 层面的 Bug。具体包含以下内容：
+
+Mac 端：
+
+- FlutterEngine 退出之后内存泄漏问题；
+
+- FlutterEngine shutdown 阶段死锁问题；
+
+- 低版本 macOS OpenGL 析构阶段 Crash 问题；
+
+Windows 端：
+
+- Win7 设备渲染模块「Crash + 残影」问题；
+
+- FlutterPlugin 注册阶段野指针 Crash；
+
+- Flutter Window 可见性变化之后页面白屏。
+
+### [Flutter 渲染性能问题分析](https://mp.weixin.qq.com/s/PaJs948QvupKZ0umjT2vjA)
+
+[@EyreFree](https://github.com/EyreFree)：Flutter 有很多优点，虽然它在渲染性能上有不少缺陷，但是某种程度上，某些缺陷也是为了实现更高层次的设计目标而不得不承受的结果。这篇文章就是对比 Web (Chromium) 和 Native (Android)，对 Flutter 的渲染性能问题进行深入分析，特别是分析惯性滚动性能糟糕的原因。并且提供了一些优化思路和优化结果的分析数据，对 Flutter 性能优化感兴趣的朋友不要错过。
+
+#### 🐕 [Flutter 小技巧之 Dart 里的 List 和 Iterable 你真的搞懂了吗？](https://mp.weixin.qq.com/s/GwAoMN77EVbZdo9Jya9hRA)
+
+[@ChengzhiHuang](https://github.com/ChengzhiHuang)：本文内容如下：
+
+- 介绍了 Dart 中的 Iterable 协议的 Lazy 属性，只有被操作时才会生成对应元素，且结果不会被缓存，多次访问会导致多次计算
+  - 在 List 上调用 map/where 会返回 lazy 特性的 Iterable
+  - 在 List 上调用 toList/toString 等则不会
+- 介绍了 Iterable 懒加载特性的适用场景与注意事项
+  - 不要在 Iterable 中使用副作用
+  - 分页加载数据、数据库查询 时可以使用 Iterable
+- 对比了 List 与 一般的 Iterable 在内部实现中的不同
+  - List 具有 length（长度），内部的 ListIterable 是通过 _iterable.length 与 _iterable.elementAt 实现
+  - 一般的 Iterable 是顺序访问的集合，并不关心 length（长度）
+
+笔者：如果做个类比，那在表现上可以理解为 Swift 的 lazy 。现在新的语言大多都有互相借鉴能力的倾向，关于 Swift 的 lazy 可以查看： [Lazy Sequences in Swift And How They Work](https://swiftrocks.com/lazy-sequences-in-swift-and-how-they-work)。
+
+#### [干货 | 携程酒店 Flutter 性能优化实践](https://mp.weixin.qq.com/s/sFF0R_wVBO6e3OSo27V1kg)
+
+[@CrazyCoderShi](https://github.com/CrazyCoderShi): 在业务不断迭代和代码持续更新的状态下，应用的性能始终是一个需要持续关注和优化的点，Flutter 应用亦如此。本文由携程前端团队产出，聚焦于 Flutter 体系下的各类优化及详细方法:
+
+- FPS&TTI 提升优化
+- UI GPU 问题定位与优化
+- Flutter 服务通道优化
+- 内存泄漏治理
+
+笔者: 携程前端团队近大半年在 Flutter 相关的技术上产出颇丰，小编建议各位同学可以翻一下往期相关文章，一定收获满满
+
+#### [Flutter 小技巧之有趣的动画技巧](https://mp.weixin.qq.com/s/bIuTsqg7p8F979owSpEO2Q)
+
+[@EyreFree](https://github.com/EyreFree)：Flutter 里实现常见的动画效果很简单，甚至不需要自定义布局，只需要通过官方的内置控件就可以轻松实现。本篇通过分享一个示例动画的实现，简单轻松地讲解了 AnimatedPositioned 和 AnimatedContainer 的使用，并且进一步引出它们是如何基于 ImplicitlyAnimatedWidget 实现所拥有的功能的，剖析了 Flutter 里的动画技巧。在学习和使用 Flutter 的朋友不要错过。
