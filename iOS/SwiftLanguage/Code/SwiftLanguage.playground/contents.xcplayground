@@ -7,5 +7,6 @@
         <page name='04-Enumerations'/>
         <page name='05-Optionals'/>
         <page name='06-Structures'/>
+        <page name='07-Closures'/>
     </pages>
 </playground>
