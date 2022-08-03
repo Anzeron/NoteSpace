@@ -14,6 +14,10 @@ FFI (Foreign Function Interface) 是用来与其它语言交互的接口，是�
 
 libffi 是 ffi 的主流实现方式，主要使用 C 和汇编实现，最常用作编译语言和解释语言实现之间的桥接技术。本文从 libffi 的调用流程出发，带大家了解 ffi_call 和 ffi_closure 是怎样帮助我们实现动态调用的。
 
+#### [AssociatedObject 源码分析：如何实现线程安全？](https://juejin.cn/post/7124943924308738061)
+
+[@JonyFang](https://github.com/JonyFang): 本文通过 AssociatedObject 与 Property 的对比，探究他们是如何设计线程安全的。AssociatedObject 也是老八股了，推荐想对线程安全实现了解的同学阅读。
+
 ### 内存管理
 
 #### [探秘 AutoreleasePool 实现原理](https://mp.weixin.qq.com/s/fcS6aiddSjeQSfjMY-8Oow)
@@ -43,3 +47,19 @@ libffi 是 ffi 的主流实现方式，主要使用 C 和汇编实现，最常�
 #### [通过汇编分析方法参数，其实很简单～](https://mp.weixin.qq.com/s/7w6h3GONKXl23D4eoIAd3w)
 
 [@AidenRao](https://weibo.com/AidenRao)：我们经常会在开发过程中遇到崩溃，如果是崩溃到系统的方法里，我们想要知道方法的参数什么，在不知道参数的个数和参数类型的情况下是非常头痛的。作者通过几个例子，逐步讲解函数在汇编下的调用过程，及如何通过汇编推测函数的参数个数和类型。
+
+#### [探究 iOS 底层原理 | ARM64 汇编](https://juejin.cn/post/7115302848270696485)
+
+[@AidenRao](https://weibo.com/AidenRao)：在探究底层原理过程中，我们必须掌握一定的前知识，才具备探究底层原理的手段。因此，作者分享了 iOS 系统真机环境下，ARM64 硬件架构的相关汇编知识。浅显易懂，值得阅读。
+
+### JSON转模型
+
+#### [Swift 中的 JSON 反序列化](https://mp.weixin.qq.com/s/lvX4uY1dGo7k3OGmEayJpg)
+
+[@Smallfly](https://github.com/iostalks)：JSON 反序列化是非常基础的需求，本文对比了业界的几种方案，分析了它们的不足之处。同样，Swift 4.0 之后官方 Codable 也无法满足云音乐团队灵活定制的需求，最终推出了基于 Codable 扩展的自研方案，满足如下的场景需求：
+
+1. 支持默认值
+2. 类型互相兼容，如 JSON 中的 int 类型可以被正确的解析为 Model 中的 String 类型
+3. 解码失败允许返回 nil ，而不是直接判定解码过程失败
+4. 支持 key 映射
+5. 支持自定义解码逻辑
