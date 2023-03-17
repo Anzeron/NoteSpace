@@ -90,6 +90,7 @@ class Point7 {
     var x: Int
     var y: Int
 }
+//let p12 = Point7(x: 1, y: 2)
 ```
 
 #### 编译器生成无参初始化器
