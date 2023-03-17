@@ -22,8 +22,6 @@ if age != nil {
 }
 ```
 
-
-
 #### 值绑定Optional Binding
 
 使用`if`，将可选变量的值绑定到一个常量(`let`)或者变量(`var`)
@@ -68,8 +66,6 @@ while let num = Int(strs[i]),
 }
 ```
 
-
-
 #### 运算符??
 
 ```swift
@@ -104,15 +100,13 @@ if let c = a ?? b {
 }
 ```
 
-
-
 ### guard
 
 ```swift
 guard 条件 else {
- 	// do something....
+     // do something....
   退出当前作用域
-	// return、break、continue、throw error 
+    // return、break、continue、throw error 
 }
 ```
 
@@ -140,9 +134,9 @@ func greet(person: [String: String]) {
 }
 ```
 
+### 隐式解包
 
-
-### 隐式解包Implicitly Unwrapped Optionals
+Implicitly Unwrapped Optionals
 
 在类型后面加上`!`定义隐式解包可选类型，也是可选类型
 
@@ -155,8 +149,6 @@ let num: Int! = 1
 let num2 = num  // optional
 let num3: Int = num // Int
 ```
-
-
 
 ### 多重可选项
 
@@ -172,4 +164,3 @@ let num6: Int?? = nil
 print(num5) // Optional(nil)
 print(num5 == num6) // false
 ```
-
