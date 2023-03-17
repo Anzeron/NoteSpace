@@ -1,5 +1,3 @@
-
-
 ### Syntax
 
 introduce enumerations with the ``enum`` keyword
@@ -32,7 +30,7 @@ var directionToHead = CompassPoint.west
 directionToHead = .east
 ```
 
-#### Matching Enumeration Values 
+#### Matching Enumeration Values
 
 - with a Switch Statement
 - with a if statement
@@ -72,10 +70,7 @@ for beverage in Beverage.allCases {
 // coffee
 // tea
 // juice”
-
 ```
-
-
 
 ### Associated Values
 
@@ -118,8 +113,6 @@ Can not match enumeration case with a if statement if has associated value
 
 can not  both use `CaseIterable` and `Associated Values`
 
-
-
 ### Raw value
 
 Each raw value must be unique within its enumeration declaration. Raw values can be
@@ -160,8 +153,6 @@ for c in CompassPoint2.allCases {
 }
 ```
 
-
-
 #### Implicitly Assigned Raw Values
 
 Swift automatically assigns the values for you with above type
@@ -171,9 +162,8 @@ Swift automatically assigns the values for you with above type
 
 The implicit rule is:
 
--  Integer: each case is one more than the previous case. If the first case doesn’t have a value set, its value is 0.
--  String:  the implicit value for each case is the text of that case’s name.
-
+- Integer: each case is one more than the previous case. If the first case doesn’t have a value set, its value is 0.
+- String:  the implicit value for each case is the text of that case’s name.
 
 ```swift
 enum Planet: Int {
@@ -214,8 +204,6 @@ if let somePlanet = Planet(rawValue: positionToFind) {
 } 
 ```
 
-
-
 ### Recursive Enumerations
 
 A recursive enumeration is an enumeration that has another instance of the enumeration as the associated value for one or more of the enumeration cases. 
@@ -237,8 +225,6 @@ indirect enum ArithmeticExpression {
     case multiplication(ArithmeticExpression, ArithmeticExpression)
 }
 ```
-
-
 
 ### MemoryLayout
 
@@ -290,7 +276,7 @@ MemoryLayout<Barcode2>.stride    // 1，分配的内存
 MemoryLayout<Barcode2>.alignment     // 1，对齐参数
 ```
 
-如果枚举只有一个`case`，并且有关联值，类型实际使用的内存是8，需要再多1个字节来区分是哪个`case`
+如果枚举只有一个`case`，并且有关联值，类型实际使用的内存是8，不需要再多1个字节来区分是哪个`case`
 
 ```swift
 enum Barcode3 {
@@ -300,4 +286,3 @@ MemoryLayout<Barcode3>.size  // 8，实际使用的字节。不需要再多1个�
 MemoryLayout<Barcode3>.stride    // 8，分配的内存
 MemoryLayout<Barcode3>.alignment     // 8，对齐参数
 ```
-
