@@ -12,7 +12,7 @@
  */
 NSMutableDictionary *gpsInfo = [NSMutableDictionary dictionary];
 gpsInfo[@"test"] = @(1.0 / 0.0);
-[NSJSONSerialization isValidJSONObject:gpsInfo];		// 不合法
+[NSJSONSerialization isValidJSONObject:gpsInfo];        // 不合法
 ```
 
 使用C语言中的宏判断NSNumber
@@ -20,13 +20,13 @@ gpsInfo[@"test"] = @(1.0 / 0.0);
 ```objc
 NSNumber *obj = @(1.0 / 0.0);
 isinf(obj.doubleValue);   // YES
-isnan(obj.doubleValue);		// NO
+isnan(obj.doubleValue);        // NO
 ```
 
 使用``try catch``，兜住异常
 
-````objc
-		@try {
+```objc
+        @try {
         gpsData = [NSJSONSerialization dataWithJSONObject:gpsInfo 
                    options:NSJSONWritingPrettyPrinted 
                    error:&parseError];
@@ -35,9 +35,7 @@ isnan(obj.doubleValue);		// NO
     } @finally {
 
     }
-````
-
-
+```
 
 ### 2 基于mach-o的无用方法检测，编译参数问题
 
@@ -54,8 +52,6 @@ STRIP_STYLE=debugging
 
 无用方法脚本：https://github.com/xuezhulian/selectorsunref
 
-
-
 ### 3 Swift 继承`UIViewController`，初始化方法
 
 需要重写`UIViewController`的2个init方法
@@ -63,20 +59,18 @@ STRIP_STYLE=debugging
 ```swift
 class ProductDetailViewController: UIViewController {
     var productItem : ProductItem;
-    
-    
+
+
     init(item: ProductItem) {
         productItem = item
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 ```
-
-
 
 ### mac App，使用Process执行Shell命令报错处理
 
@@ -86,8 +80,6 @@ ls: .: Operation not permitted
 ```
 
 去掉App的Sandbox限制，默认工程设置是Sandbox
-
-
 
 ### navigationController在iOS 15上的崩溃
 
