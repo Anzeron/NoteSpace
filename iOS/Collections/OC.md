@@ -63,3 +63,11 @@ libffi 是 ffi 的主流实现方式，主要使用 C 和汇编实现，最常�
 3. 解码失败允许返回 nil ，而不是直接判定解码过程失败
 4. 支持 key 映射
 5. 支持自定义解码逻辑
+
+
+
+### 锁
+
+优先级反转：https://mp.weixin.qq.com/s/kp6cdDrdQ4rhfdXH-_Q8IA
+
+Xcode工具诊断：[Apple Developer Documentation](https://developer.apple.com/documentation/xcode/diagnosing-performance-issues-early)
